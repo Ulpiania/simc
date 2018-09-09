@@ -6414,7 +6414,6 @@ void mage_t::apl_arcane()
   default_list -> add_action( this, "Time Warp", "if=time=0&buff.bloodlust.down" );
   default_list -> add_action( "call_action_list,name=burn,if=burn_phase|target.time_to_die<variable.average_burn_length", "Go to Burn Phase when already burning, or when boss will die soon." );
   default_list -> add_action( "call_action_list,name=burn,if=(cooldown.arcane_power.remains=0&cooldown.evocation.remains<=variable.average_burn_length&(buff.arcane_charge.stack=buff.arcane_charge.max_stack|(talent.charged_up.enabled&cooldown.charged_up.remains=0)))", "Start Burn Phase when Arcane Power is ready and Evocation will be ready (on average) before the burn phase is over. Also make sure we got 4 Arcane Charges, or can get 4 Arcane Charges with Charged Up." );
-  default_list -> add_action( "call_action_list,name=burn,if=variable.bs_rotation=1&(cooldown.evocation.remains=0|cooldown.evocation.remains<=variable.average_burn_length)&(buff.arcane_charge.stack=buff.arcane_charge.max_stack|(talent.charged_up.enabled&cooldown.charged_up.remains=0))", "When running Brainstorm rotation, instead of making sure Arcane Power is ready, we check if Evocation is ready, or will be ready before OOMing. (on average) We still keep the same Arcane Charge logic." );
   default_list -> add_action( "call_action_list,name=conserve,if=!burn_phase" );
   default_list -> add_action( "call_action_list,name=movement" );
 
